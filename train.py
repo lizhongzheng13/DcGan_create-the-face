@@ -41,7 +41,7 @@ random.seed(regular_seed)
 torch.manual_seed(regular_seed)
 
 # 参数设置
-data_path = "D:\\BaiduNetdiskDownload\\DCGAN人脸嘴部表情生成\\data"
+data_path = "D:\\BaiduNetdiskDownload\\DCGAN人脸嘴部表情生成\\data"  # 更换成自己的数据集位置
 num_work = 0  # 进程数量选择 #0:数据加载完全在主进程中串行执行
 batch_size = 16  # 每批次的图像数量
 img_size = 64
@@ -123,7 +123,7 @@ for epoch in range(num_epochs):
         # 输出训练状态
         if i % 20 == 0:
             print('[%d/%d][%d/%d]\tLoss_D: %.4f\tLoss_G: %.4f\tD(x): %.4f\tD(G(z)): %.4f / %.4f'
-                  % (epoch+1, num_epochs, i, len(dataloader),
+                  % (epoch + 1, num_epochs, i, len(dataloader),
                      errD.item(), errG.item(), D_real, D_fake, G_fake))
         # 存储损失
         loss_gen = loss_gen + errG.item()  ## 累加batch损失
